@@ -1,0 +1,88 @@
+{
+ "fetched": "2026-10-30 17:33",
+ "source": "Groww scheme pages (public page data)",
+ "schemes": {
+  "large-cap": {
+   "url": "https://groww.in/mutual-funds/groww-large-cap-fund-direct-growth",
+   "name": "Groww Large Cap Fund Direct Growth",
+   "fund_name": "Groww Large Cap Fund",
+   "category": "Equity · Large Cap",
+   "nav": 50.07,
+   "nav_date": "29-Oct-2026",
+   "r1y": -6.64,
+   "r3y": 10.57,
+   "r5y": 8.13,
+   "since": 11.73,
+   "expense_ratio": 1.69,
+   "aum_cr": 132.67,
+   "exit_load": "Exit load of 1%, if redeemed within 7 days.",
+   "min_sip": 500.0,
+   "min_lump": 500.0,
+   "benchmark": "NIFTY 100 Total Return Index",
+   "risk": "Very High Risk",
+   "launch_date": "01-Jan-2013",
+   "managers": [
+    "Saptarshee Chatterjee",
+    "Anupam Tiwari",
+    "Nikhil Satam",
+    "Hitesh Das"
+   ],
+   "lock_in": null,
+   "fund_house": "Groww Mutual Fund"
+  },
+  "multicap": {
+   "url": "https://groww.in/mutual-funds/groww-multicap-fund-direct-growth",
+   "name": "Groww Multicap Fund Direct Growth",
+   "fund_name": "Groww Multicap Fund",
+   "category": "Equity · Multi Cap",
+   "nav": 12.0232,
+   "nav_date": "29-Oct-2026",
+   "r1y": 10.82,
+   "r3y": null,
+   "r5y": null,
+   "since": 10.36,
+   "expense_ratio": 1.02,
+   "aum_cr": 1687.35,
+   "exit_load": "Exit load of 1%, if redeemed within 1 year.",
+   "min_sip": 500.0,
+   "min_lump": 500.0,
+   "benchmark": "Nifty 500 Multicap 50:25:25 Total Return Index",
+   "risk": "Very High Risk",
+   "launch_date": "16-Dec-2024",
+   "managers": [
+    "Saptarshee Chatterjee",
+    "Anupam Tiwari",
+    "Nikhil Satam",
+    "Hitesh Das"
+   ],
+   "lock_in": null,
+   "fund_house": "Groww Mutual Fund"
+  },
+  "elss": {
+   "url": "https://groww.in/mutual-funds/groww-elss-tax-saver-fund-direct-growth",
+   "name": "Groww ELSS Tax Saver Fund Direct Growth",
+   "fund_name": "Groww ELSS Tax Saver Fund",
+   "category": "Equity · ELSS",
+   "nav": 20.98,
+   "nav_date": "29-Oct-2026",
+   "r1y": -9.88,
+   "r3y": 9.09,
+   "r5y": 7.68,
+   "since": 8.74,
+   "expense_ratio": 1.52,
+   "aum_cr": 48.25,
+   "exit_load": "Nil",
+   "min_sip": 500.0,
+   "min_lump": 500.0,
+   "benchmark": "NIFTY 500 Total Return Index",
+   "risk": "Very High Risk",
+   "launch_date": "28-Dec-2017",
+   "managers": [
+    "Paras Matalia",
+    "Nikhil Satam"
+   ],
+   "lock_in": "3 years",
+   "fund_house": "Groww Mutual Fund"
+  }
+ }
+}
