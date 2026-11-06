@@ -124,12 +124,24 @@ def quote_all():
     for sym in QUOTES:
         try:
             r = requests.get("https://query1.finance.yahoo.com/v8/finance/chart/" + quote(sym, safe="") + "?interval=1d&range=5d", headers=UA, timeout=10)
-            m = r.json()["chart"]["result"][0]["meta"]
-            price, prev = m.get("regularMarketPrice"), m.get("chartPreviousClose")
+            res = r.json()["chart"]["result"][0]
+            m = res["meta"]
+            price = m.get("regularMarketPrice")
+            # chartPreviousClose is the close BEFORE the 5-day window, not yesterday's close, so work it out from
+            # the daily closes below.
+            raw = (res.get("indicators", {}).get("quote") or [{}])[0].get("close", [])
+            closes = [c for c in raw if c]
+            if raw and raw[-1] is None:  # today's bar is not filled yet: yesterday's close is the last one we have
+                prev = closes[-1] if closes else None
+            else:  # the last bar is today's price (or the latest session): the one before it is the previous close
+                prev = closes[-2] if len(closes) >= 2 else m.get("previousClose")
             if price is None or not prev:
                 continue
+            pct = round((price - prev) / prev * 100, 2)
+            if abs(pct) > 5:  # rare for one day: log it so a data error is noticed, not shown silently
+                print(f"WARNING quote check: {sym} one-day move {pct}% (price {price}, prev {prev}); verify the source")
             out[sym] = {"label": QUOTES[sym][0], "unit": QUOTES[sym][1], "price": round(price, 2), "prev": round(prev, 2),
-                        "change": round(price - prev, 2), "pct": round((price - prev) / prev * 100, 2),
+                        "change": round(price - prev, 2), "pct": pct, "flag": "large_move" if abs(pct) > 5 else "",
                         "asOf": datetime.fromtimestamp(m.get("regularMarketTime", time.time()), timezone.utc).isoformat(),
                         "source": "Yahoo Finance (may be delayed)"}
         except Exception:
