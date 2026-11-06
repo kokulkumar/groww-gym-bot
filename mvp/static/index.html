@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Groww Gym Bot</title>
+<title>Groww Gym AI</title>
 <style>
   :root{
     --bg:#fff; --ink:#44475b; --ink-strong:#2c2e3e; --muted:#6b6e7e; --faint:#777a89;
@@ -927,7 +927,7 @@ function wireMySip(s){
   b.onclick=()=>{
     const days=(nextDateFor(h)-new Date())/86400000;
     if(days<2){toast2('Skip is not available within 2 days of the instalment');return}
-    const {sh,close}=openQSheet(`<div class="shh"><h3>Skip next month?</h3></div><p>Your ${fmtD(nextDateFor(h))} instalment of ${inr(h.amount)} will be skipped and no units will be bought that month. Only one instalment can be skipped at a time, and three skipped or missed in a row cancel the SIP.</p><p style="font-size:13px;color:var(--muted)">In Groww Gym Bot, your quick check then opens 3 days after your SIP date, and a skipped month does not add to your streak.</p><button class="pri" id="skYes">Skip next month</button><button class="sec2" id="skNo">Keep it</button>`);
+    const {sh,close}=openQSheet(`<div class="shh"><h3>Skip next month?</h3></div><p>Your ${fmtD(nextDateFor(h))} instalment of ${inr(h.amount)} will be skipped and no units will be bought that month. Only one instalment can be skipped at a time, and three skipped or missed in a row cancel the SIP.</p><p style="font-size:13px;color:var(--muted)">In Groww Gym AI, your quick check then opens 3 days after your SIP date, and a skipped month does not add to your streak.</p><button class="pri" id="skYes">Skip next month</button><button class="sec2" id="skNo">Keep it</button>`);
     sh.querySelector('#skNo').onclick=close;
     sh.querySelector('#skYes').onclick=()=>{h.skipNext=true;close();setTimeout(()=>render(),320)};
   };
@@ -1174,7 +1174,7 @@ function wireDone(s){
   const rows={
     path:()=>openQSheet(shh('Your 18-month path')+`<p>One chapter a month, in three stages.</p><div class="path">${[['Basic','Chapters 1 to 6'],['Intermediate','Chapters 7 to 12'],['Advanced','Chapters 13 to 18']].map(([n,c],k)=>`<div class="st"><img class="sb" src="assets/badges/${['basic-silver','intermediate-gold','advanced-shield'][k]}.png" alt=""><b>${n}</b><div class="dots6">${[0,1,2,3,4,5].map(j=>`<i class="${k===0&&j===0?'on':''}"></i>`).join('')}</div><small>${c}</small></div>`).join('')}</div><p class="nt">Each chapter has a short lesson and a quick check.</p>`),
     board_unused:()=>openQSheet(shh('Chapter 1 leaderboard')+`<p style="margin-bottom:8px">Learning XP only. Nicknames only.</p>${[['SteadyOwl',48,'#5367ff','Level 2'],['CalmFox',42,'#00b386','Level 2'],['PatientPanda',35,'#f08a24','Level 1']].map(([n,x,c,l],k)=>`<div class="lb"><span class="rk">${k+1}</span><span class="av" style="background:${c}">${n[0]}</span><span class="nm">${n}<small>${l}</small></span><span class="xp">${x} XP</span></div>`).join('')}<div class="lb me"><span class="rk">·</span><span class="av" style="background:#c9cdd8;font-size:11px">You</span><span class="nm">You<small>Finish Chapter 1 to join the board</small></span><span class="xp">0 XP</span></div><p class="nt">Sample learners in this demo.</p>`),
-    cert:()=>openQSheet(shh('Your certificate')+`<div class="certc"><span class="smp">SAMPLE</span><img class="seal" src="assets/badges/advanced-shield.png" alt=""><small>CERTIFICATE OF LEARNING</small><div class="pre">This certifies that</div><div class="nn">Your nickname</div><div class="tx2">has completed all 18 chapters of Groww Gym Bot, from Basic to Advanced.</div><div class="dt">Month Year · Learning certificate, not a financial qualification</div></div><button class="pri" id="shareBtn">Share on social media</button><p class="nt" style="text-align:center">Earned when you finish chapter 18. Shows your nickname, chapters and dates only.</p>`)
+    cert:()=>openQSheet(shh('Your certificate')+`<div class="certc"><span class="smp">SAMPLE</span><img class="seal" src="assets/badges/advanced-shield.png" alt=""><small>CERTIFICATE OF LEARNING</small><div class="pre">This certifies that</div><div class="nn">Your nickname</div><div class="tx2">has completed all 18 chapters of Groww Gym AI, from Basic to Advanced.</div><div class="dt">Month Year · Learning certificate, not a financial qualification</div></div><button class="pri" id="shareBtn">Share on social media</button><p class="nt" style="text-align:center">Earned when you finish chapter 18. Shows your nickname, chapters and dates only.</p>`)
   };
   phone.querySelectorAll('[data-row]').forEach(b=>b.onclick=()=>{const r=rows[b.dataset.row]();const sb=r.sh.querySelector('#shareBtn');if(sb) sb.onclick=()=>{sb.textContent='Sharing opens here in the full app'}});
   phone.querySelector('#laterBtn').onclick=()=>{nudge.pending=true;nudge.id=s.id;location.hash='#/scheme/'+s.id;setTimeout(()=>{nudge.banner=true;mountBanner()},1600)};
@@ -1437,7 +1437,7 @@ function screenSuccess(s){
     <p class="sb2">Every chapter finished, all three levels earned. This is a preview, not your progress.</p>
     <div class="stats"><div><b>18</b><small>chapters</small></div><div><b>3</b><small>levels</small></div><div><b>900</b><small>XP possible</small></div></div>
     <div class="bdg">${['basic-silver','intermediate-gold','advanced-shield'].map((b,i)=>`<div><img src="assets/badges/${b}.png" alt="">${['Basic','Intermediate','Advanced'][i]}</div>`).join('')}</div>
-    <div class="certc"><span class="smp">SAMPLE</span><img class="seal" src="assets/badges/advanced-shield.png" alt=""><small>CERTIFICATE OF LEARNING</small><div class="pre">This certifies that</div><div class="nn">${nick}</div><div class="tx2">has completed all 18 chapters of Groww Gym Bot, from Basic to Advanced.</div><div class="dt">Month Year · Learning certificate, not a financial qualification</div></div>
+    <div class="certc"><span class="smp">SAMPLE</span><img class="seal" src="assets/badges/advanced-shield.png" alt=""><small>CERTIFICATE OF LEARNING</small><div class="pre">This certifies that</div><div class="nn">${nick}</div><div class="tx2">has completed all 18 chapters of Groww Gym AI, from Basic to Advanced.</div><div class="dt">Month Year · Learning certificate, not a financial qualification</div></div>
     <button class="share" id="shBtn">Share on social media</button>
     <button class="back2" id="back2">Back to chapters</button>
   </div></section>`;
@@ -1655,7 +1655,7 @@ let splashEl=null, splashActive=false;
 function showSplash(){
   if(/[?&]nosplash=1/.test(location.search)) return;
   splashEl=document.createElement('div'); splashEl.className='splash'; splashActive=true;
-  splashEl.innerHTML='<canvas id="splashOrb"></canvas><h1>Groww <b>Gym Bot</b></h1><div class="tag">LEARN BETTER · STAY INVESTED</div><div class="bar"><i></i></div><div class="fine">Concept prototype. Not the real Groww app.<br>No real money moves. Information, not investment advice.</div>';
+  splashEl.innerHTML='<canvas id="splashOrb"></canvas><h1>Groww <b>Gym AI</b></h1><div class="tag">LEARN BETTER · STAY INVESTED</div><div class="bar"><i></i></div><div class="fine">Concept prototype. Not the real Groww app.<br>No real money moves. Information, not investment advice.</div>';
   phone.appendChild(splashEl);
   startOrbDark(splashEl.querySelector('#splashOrb'));
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1833,7 +1833,7 @@ function screenAbout(){
   return `<section class="screen" id="s-about"><div class="abt">
     <div class="hd"><button class="icon-btn" id="backBtn" aria-label="Back">${I.back}</button><h1>About this prototype</h1></div>
     <div class="sc">
-      <p class="lead">Groww Gym Bot is a concept prototype from a PM graduation project. It is not the real Groww app, no real money moves, and nothing here is investment advice.</p>
+      <p class="lead">Groww Gym AI is a concept prototype from a PM graduation project. It is not the real Groww app, no real money moves, and nothing here is investment advice.</p>
       ${card('The problem it targets','<p>First-time mutual fund investors often stop their SIP within a year. In our survey of 24 investors, 71% turn to a friend or no one when worried, and those who expected results within a year were far more likely to pause or stop. The idea: help beginners learn as they invest, so they stay invested.</p>')}
       ${card('Try these three tasks','<ol><li><b>Ask about a fund.</b> Open a scheme, tap the chat icon in the bottom bar, ask a question, then try asking about another fund or for advice.</li><li><b>Start a SIP and learn.</b> Start a SIP, pay, accept the course, pick a nickname, read Lesson 1, take the quick check. Then go home for the next notification.</li><li><b>Ask the Coach.</b> Tap the orb, set up the Daily Market Brief, pick a news story and ask a follow-up.</li></ol>')}
       ${card('What is live and what is simulated','<div class="two"><div><b>Live AI</b><ul><li>Fund chat (answers from the scheme’s own documents)</li><li>Ask the Coach and the Daily Market Brief (real headlines and prices, explained in plain words)</li></ul></div><div><b>Simulated</b><ul><li>Payments, the SIP and its history</li><li>XP, levels, streak, leaderboard learners</li><li>The quick check questions (a fixed bank for now)</li><li>Months passing: notifications arrive when you return to the home screen</li></ul></div></div>')}

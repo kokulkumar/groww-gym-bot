@@ -1,4 +1,4 @@
-# Groww Gym Bot (concept prototype)
+# Groww Gym AI (concept prototype)
 
 A mobile-first web prototype that helps first-time mutual fund investors keep their SIP going: an 18-month course (lesson + quick check each month), streak, XP and levels, plus two AI helpers: **Ask the Coach** (market news in plain words, learning questions) and **Fund chat** (facts from public scheme pages for three Groww schemes).
 

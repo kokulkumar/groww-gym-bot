@@ -1,4 +1,4 @@
-"""Groww Gym Bot MVP backend.
+"""Groww Gym AI MVP backend.
 
 Serves the static demo screens and the AI endpoints.
 Run from the project root:  python3 -m uvicorn mvp.server:app --port 8700
@@ -40,7 +40,7 @@ API = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateConte
 DAILY_CAP = int(os.environ.get("DAILY_CAP") or _E.get("DAILY_CAP") or 300)
 UA = {"User-Agent": "Mozilla/5.0 (GrowwGymBot-student-prototype)"}
 
-app = FastAPI(title="Groww Gym Bot MVP")
+app = FastAPI(title="Groww Gym AI MVP")
 
 # ----------------------------------------------------------------------------- per-visitor limit (protects the key on a public link)
 _hits = defaultdict(deque)
